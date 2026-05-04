@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>母亲节快乐 - 献给我最爱的妈妈</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Background Music -->
+        <audio id="bgMusic" loop preload="auto">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+        <!-- Mobile Header -->
+        <header class="mobile-header md:hidden">
+            <button class="menu-btn" id="menuBtn">≡</button>
+            <span class="logo">For Mom ♡</span>
+            <button class="music-btn" id="musicBtnMobile">
+                <svg class="music-play" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A5148" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+                </svg>
+                <svg class="music-mute" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A5148" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                    <line x1="1" y1="1" x2="23" y2="23"/><path d="M9 9v6a3 3 0 0 0 5.12 2.12M15 9.34V15a3 3 0 0 1-5.12 2.12"/><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"/><line x1="12" y1="19" x2="12" y2="5"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Mobile Drawer -->
+        <div class="mobile-drawer-overlay md:hidden" id="drawerOverlay">
+            <nav class="mobile-drawer">
+                <button class="drawer-link" data-target="hero">首页</button>
+                <button class="drawer-link" data-target="story">我们的故事</button>
+                <button class="drawer-link" data-target="album">相册</button>
+                <button class="drawer-link" data-target="message">心里话</button>
+                <button class="drawer-link" data-target="interaction">互动</button>
+                <button class="drawer-link" data-target="ending">结尾</button>
+            </nav>
+        </div>
+
+        <!-- Desktop Header -->
+        <header class="desktop-header hidden md:flex">
+            <span class="logo">For Mom ♡</span>
+            <nav class="desktop-nav">
+                <button class="nav-link" data-target="hero">首页</button>
+                <button class="nav-link" data-target="story">我们的故事</button>
+                <button class="nav-link" data-target="album">相册</button>
+                <button class="nav-link" data-target="message">心里话</button>
+                <button class="nav-link" data-target="ending">母亲节</button>
+            </nav>
+            <button class="music-circle" id="musicBtnDesktop">
+                <svg class="music-play" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+                </svg>
+                <svg class="music-mute" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                    <line x1="1" y1="1" x2="23" y2="23"/><path d="M9 9v6a3 3 0 0 0 5.12 2.12M15 9.34V15a3 3 0 0 1-5.12 2.12"/><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"/><line x1="12" y1="19" x2="12" y2="5"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Hero - Mobile -->
+        <section id="hero" class="hero-mobile md:hidden">
+            <div class="hero-text-mobile">
+                <div class="carnation-top-right">
+                    <svg width="60" height="87" viewBox="0 0 60 87" fill="none" stroke="#E88884" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M30 87 Q29 68 30 48"/>
+                        <path d="M30 69 Q17 59 13 44 Q22 55 30 69" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        <path d="M30 61 Q43 51 47 36 Q38 47 30 61" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        <path d="M30 45 Q20 31 13 33 Q9 40 16 46 Q22 51 30 47" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 45 Q40 31 47 33 Q51 40 44 46 Q37 51 30 47" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 45 Q16 37 11 26 Q21 35 28 42" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 45 Q44 37 49 26 Q39 35 32 42" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 43 Q24 25 20 18 Q30 28 30 43" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M30 43 Q36 25 40 18 Q30 28 30 43" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M30 43 Q12 32 8 20 Q22 32 28 41" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M30 43 Q48 32 52 20 Q38 32 32 41" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M26 38 Q30 22 34 38" fill="#E88884" fill-opacity="0.28"/>
+                        <path d="M22 41 Q30 24 38 41" fill="#E88884" fill-opacity="0.22"/>
+                        <ellipse cx="30" cy="38" rx="5" ry="4" fill="#E88884" fill-opacity="0.5"/>
+                        <path d="M27.5 35.5 Q30 31 32.5 35.5" stroke-width="0.7" fill="none"/>
+                    </svg>
+                </div>
+                <p class="hero-subtitle">献给我最爱的妈妈</p>
+                <h1 class="hero-title">因为有你<br/>世界才如此温暖</h1>
+                <p class="hero-desc">感谢您一直以来的爱与陪伴，<br/>愿时光温柔以待，愿您永远快乐。</p>
+                <button class="btn-rose" data-target="story">开始回忆之旅 ›</button>
+            </div>
+            <div class="hero-photo-mobile">
+                <img src="https://images.unsplash.com/photo-1674401796386-c64815877c56?w=1200&q=80" alt="母亲与孩子">
+                <div class="hero-fade-top"></div>
+                <div class="hero-tag">
+                    <div class="tag-content">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="#E88884" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        母亲节快乐
+                    </div>
+                    <div class="bnc" style="color:#E88884; font-size:17px;">↓</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero - Desktop -->
+        <section id="hero" class="hero-desktop hidden md:flex">
+            <div class="hero-left">
+                <div class="carnation-decoration">
+                    <svg width="88" height="128" viewBox="0 0 60 87" fill="none" stroke="#E88884" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.72">
+                        <path d="M30 87 Q29 68 30 48"/>
+                        <path d="M30 69 Q17 59 13 44 Q22 55 30 69" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        <path d="M30 61 Q43 51 47 36 Q38 47 30 61" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        <path d="M30 45 Q20 31 13 33 Q9 40 16 46 Q22 51 30 47" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 45 Q40 31 47 33 Q51 40 44 46 Q37 51 30 47" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 45 Q16 37 11 26 Q21 35 28 42" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 45 Q44 37 49 26 Q39 35 32 42" fill="#E88884" fill-opacity="0.12"/>
+                        <path d="M30 43 Q24 25 20 18 Q30 28 30 43" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M30 43 Q36 25 40 18 Q30 28 30 43" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M30 43 Q12 32 8 20 Q22 32 28 41" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M30 43 Q48 32 52 20 Q38 32 32 41" fill="#E88884" fill-opacity="0.18"/>
+                        <path d="M26 38 Q30 22 34 38" fill="#E88884" fill-opacity="0.28"/>
+                        <path d="M22 41 Q30 24 38 41" fill="#E88884" fill-opacity="0.22"/>
+                        <ellipse cx="30" cy="38" rx="5" ry="4" fill="#E88884" fill-opacity="0.5"/>
+                        <path d="M27.5 35.5 Q30 31 32.5 35.5" stroke-width="0.7" fill="none"/>
+                    </svg>
+                </div>
+                <div class="hero-content">
+                    <p class="hero-label">For Mom ♡</p>
+                    <h1 class="hero-title-desktop">因为有你<br/>世界才如此温暖</h1>
+                    <div class="divider"></div>
+                    <p class="hero-desc-desktop">感谢您一直以来的爱与陪伴，<br/>愿时光温柔以待，愿您永远快乐。</p>
+                    <button class="btn-rose" data-target="story">开始回忆之旅 ›</button>
+                    <div class="hero-footer flt">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="#E88884" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <span>母亲节快乐 · 2024.05.11</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="https://images.unsplash.com/photo-1674401796386-c64815877c56?w=1200&q=80" alt="母亲与孩子">
+                <div class="hero-left-fade"></div>
+                <div class="hero-top-fade"></div>
+            </div>
+        </section>
+
+        <!-- Date Bar -->
+        <div class="date-bar">
+            <div class="date-bar-content hidden md:flex">
+                <div class="date-info">
+                    <div class="date-label">母亲节</div>
+                    <div class="date-number">05/11</div>
+                    <div class="date-week">星期日</div>
+                </div>
+                <div class="date-divider"></div>
+                <div class="date-icons">
+                    <button class="date-icon-btn" data-target="message">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <span>感恩</span>
+                    </button>
+                    <button class="date-icon-btn" data-target="album">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                        <span>回忆</span>
+                    </button>
+                    <button class="date-icon-btn" data-target="interaction">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+                        </svg>
+                        <span>音乐</span>
+                    </button>
+                    <button class="date-icon-btn" data-target="message">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span>心里话</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story Section -->
+        <section id="story" class="story-section">
+            <!-- Desktop: Story + 心里话 -->
+            <div class="story-content hidden md:block">
+                <div class="story-grid">
+                    <div class="story-left">
+                        <div class="fi">
+                            <div class="section-header">
+                                <h2 class="section-title">我们的故事</h2>
+                                <svg width="28" height="41" viewBox="0 0 60 87" fill="none" stroke="#E88884" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.7">
+                                    <path d="M30 87 Q29 68 30 48"/>
+                                    <path d="M30 69 Q17 59 13 44 Q22 55 30 69" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                                    <path d="M30 61 Q43 51 47 36 Q38 47 30 61" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="story-timeline-wrapper">
+                            <div class="story-timeline">
+                                <div class="timeline-line"></div>
+                                <div class="timeline-item fi" style="transition-delay:0s">
+                                    <div class="timeline-dot"><div class="dot-inner"></div></div>
+                                    <div class="timeline-year">2005</div>
+                                    <div class="timeline-text">我出生了，您成为了妈妈</div>
+                                </div>
+                                <div class="timeline-item fi" style="transition-delay:0.1s">
+                                    <div class="timeline-dot"><div class="dot-inner"></div></div>
+                                    <div class="timeline-year">2010</div>
+                                    <div class="timeline-text">第一次牵着您的手</div>
+                                </div>
+                                <div class="timeline-item fi" style="transition-delay:0.2s">
+                                    <div class="timeline-dot"><div class="dot-inner"></div></div>
+                                    <div class="timeline-year">2015</div>
+                                    <div class="timeline-text">我们一起旅行的时光</div>
+                                </div>
+                                <div class="timeline-item fi" style="transition-delay:0.3s">
+                                    <div class="timeline-dot"><div class="dot-inner"></div></div>
+                                    <div class="timeline-year">2020</div>
+                                    <div class="timeline-text">我长大了，您却慢慢老了</div>
+                                </div>
+                                <div class="timeline-item fi" style="transition-delay:0.4s">
+                                    <div class="timeline-dot"><div class="dot-inner"></div></div>
+                                    <div class="timeline-year">2024</div>
+                                    <div class="timeline-text">未来的每一天，我都会在您身边</div>
+                                </div>
+                            </div>
+                            <div class="story-polaroids fi">
+                                <div class="pol-wrap" style="top:0; left:10px; width:160px; transform:rotate(-5deg); z-index:1">
+                                    <div class="polaroid">
+                                        <img src="https://images.unsplash.com/photo-1762174241767-498fbe248a30?w=800&q=80" alt="成长时光">
+                                        <p class="polaroid-label">成长时光</p>
+                                    </div>
+                                </div>
+                                <div class="pol-wrap" style="top:20px; left:55px; width:160px; transform:rotate(4deg); z-index:2">
+                                    <div class="polaroid">
+                                        <img src="https://images.unsplash.com/photo-1758598738003-3c2ea5c8b166?w=800&q=80" alt="书香岁月">
+                                        <p class="polaroid-label">书香岁月</p>
+                                    </div>
+                                </div>
+                                <div class="pol-wrap" style="top:190px; left:20px; width:160px; transform:rotate(-2deg); z-index:3">
+                                    <div class="polaroid">
+                                        <img src="https://images.unsplash.com/photo-1765544182396-667421f1e24d?w=800&q=80" alt="旅途风景">
+                                        <p class="polaroid-label">旅途风景</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fi" style="margin-top:280px">
+                            <button class="btn-rose" data-target="album">查看全部照片 <span>›</span></button>
+                        </div>
+                    </div>
+                    <div id="message" class="story-right">
+                        <div class="fi">
+                            <h2 class="section-title">心里话</h2>
+                        </div>
+                        <div class="message-wrapper">
+                            <div class="fi">
+                                <div class="message-card">
+                                    <div class="quote-mark">"</div>
+                                    <div class="message-content">
+                                        <p class="message-text">
+                                            妈，<br/>
+                                            谢谢您为我做的一切，<br/>
+                                            谢谢您的包容和理解，<br/>
+                                            谢谢您的爱和付出。<br/>
+                                            这些年辛苦了！<br/>
+                                            愿您永远健康、快乐，<br/>
+                                            我会一直陪在您身边。
+                                        </p>
+                                        <p class="message-sign">
+                                            ——您的孩子<br/>
+                                            <span>2024.05.11</span>
+                                        </p>
+                                    </div>
+                                </div>                                <div class="message-actions">
+                                    <button class="action-btn" id="likeBtn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A6B60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" id="likeIcon">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                        </svg>
+                                        <span id="likeCount">1234</span>
+                                    </button>
+                                    <button class="action-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A6B60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                        </svg>
+                                        <span>56</span>
+                                    </button>
+                                    <button class="action-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A6B60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                                        </svg>
+                                        <span>分享</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="fi flt" style="padding-top:8px">
+                                <svg width="130" height="202" viewBox="0 0 100 155" fill="none">
+                                    <path d="M40 74 Q36 56 34 36" stroke="#8A9A6A" stroke-width="1.1" stroke-linecap="round"/>
+                                    <path d="M50 74 Q50 52 52 22" stroke="#8A9A6A" stroke-width="1.1" stroke-linecap="round"/>
+                                    <path d="M60 74 Q64 56 66 34" stroke="#8A9A6A" stroke-width="1.1" stroke-linecap="round"/>
+                                    <path d="M37 58 Q25 50 22 38 Q32 48 37 58" fill="#8A9A6A" fill-opacity="0.4" stroke="#8A9A6A" stroke-width="0.7"/>
+                                    <path d="M58 58 Q70 50 73 38 Q63 48 58 58" fill="#8A9A6A" fill-opacity="0.4" stroke="#8A9A6A" stroke-width="0.7"/>
+                                    <path d="M34 34 Q26 22 20 24 Q16 30 22 36 Q28 40 34 36" fill="#E88884" fill-opacity="0.18" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M34 34 Q42 22 48 24 Q52 30 46 36 Q40 40 34 36" fill="#E88884" fill-opacity="0.18" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M34 34 Q28 18 26 10 Q34 20 34 34" fill="#E88884" fill-opacity="0.22" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M34 34 Q40 18 42 10 Q34 20 34 34" fill="#E88884" fill-opacity="0.22" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M30 28 Q34 18 38 28 Q36 34 34 34 Q32 34 30 28Z" fill="#E88884" fill-opacity="0.48"/>
+                                    <circle cx="34" cy="28" r="3" fill="#E88884" fill-opacity="0.72"/>
+                                    <path d="M52 20 Q44 8 38 10 Q34 16 40 22 Q46 26 52 22" fill="#F4A0A0" fill-opacity="0.22" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M52 20 Q60 8 66 10 Q70 16 64 22 Q58 26 52 22" fill="#F4A0A0" fill-opacity="0.22" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M52 20 Q46 4 48 -2 Q52 4 56 -2 Q54 4 52 20" fill="#E88884" fill-opacity="0.28" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M48 14 Q52 6 56 14 Q54 20 52 20 Q50 20 48 14Z" fill="#E88884" fill-opacity="0.55"/>
+                                    <circle cx="52" cy="14" r="3.5" fill="#E88884" fill-opacity="0.75"/>
+                                    <path d="M66 32 Q58 20 52 22 Q48 28 54 34 Q60 38 66 34" fill="#E88884" fill-opacity="0.18" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M66 32 Q74 20 80 22 Q84 28 78 34 Q72 38 66 34" fill="#E88884" fill-opacity="0.18" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M66 32 Q70 16 72 8 Q64 20 66 32" fill="#E88884" fill-opacity="0.22" stroke="#E88884" stroke-width="0.7"/>
+                                    <path d="M62 26 Q66 16 70 26 Q68 32 66 32 Q64 32 62 26Z" fill="#E88884" fill-opacity="0.48"/>
+                                    <circle cx="66" cy="26" r="3" fill="#E88884" fill-opacity="0.72"/>
+                                    <path d="M30 74 Q14 96 18 124 Q22 146 50 150 Q78 146 82 124 Q86 96 70 74Z" fill="rgba(195,175,160,0.12)" stroke="#BBA89A" stroke-width="1.3"/>
+                                    <path d="M36 57 Q32 65 30 74 L70 74 Q68 65 64 57Z" fill="rgba(195,175,160,0.1)" stroke="#BBA89A" stroke-width="1.3"/>
+                                    <ellipse cx="50" cy="57" rx="16" ry="5" fill="rgba(195,175,160,0.18)" stroke="#BBA89A" stroke-width="1.3"/>
+                                    <path d="M24 88 Q50 85 76 88" stroke="#C4D4E0" stroke-width="0.8" opacity="0.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile: Story -->
+            <div class="story-mobile md:hidden">
+                <div class="fi">
+                    <div class="section-header-mobile">
+                        <h2 class="section-title-mobile">我们的故事</h2>
+                        <svg width="22" height="32" viewBox="0 0 60 87" fill="none" stroke="#E88884" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.7">
+                            <path d="M30 87 Q29 68 30 48"/>
+                            <path d="M30 69 Q17 59 13 44 Q22 55 30 69" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                            <path d="M30 61 Q43 51 47 36 Q38 47 30 61" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="timeline-mobile">
+                    <div class="timeline-line-mobile"></div>
+                    <div class="timeline-item-mobile fi" style="transition-delay:0s">
+                        <div class="timeline-dot-mobile"><div class="dot-inner-mobile"></div></div>
+                        <div class="timeline-year-mobile">2005</div>
+                        <div class="timeline-text-mobile">我出生了，您成为了妈妈</div>
+                    </div>
+                    <div class="timeline-item-mobile fi" style="transition-delay:0.08s">
+                        <div class="timeline-dot-mobile"><div class="dot-inner-mobile"></div></div>
+                        <div class="timeline-year-mobile">2010</div>
+                        <div class="timeline-text-mobile">第一次牵着您的手</div>
+                    </div>
+                    <div class="timeline-item-mobile fi" style="transition-delay:0.16s">
+                        <div class="timeline-dot-mobile"><div class="dot-inner-mobile"></div></div>
+                        <div class="timeline-year-mobile">2015</div>
+                        <div class="timeline-text-mobile">我们一起旅行的时光</div>
+                    </div>
+                    <div class="timeline-item-mobile fi" style="transition-delay:0.24s">
+                        <div class="timeline-dot-mobile"><div class="dot-inner-mobile"></div></div>
+                        <div class="timeline-year-mobile">2020</div>
+                        <div class="timeline-text-mobile">我长大了，您却慢慢老了</div>
+                    </div>
+                    <div class="timeline-item-mobile fi" style="transition-delay:0.32s">
+                        <div class="timeline-dot-mobile"><div class="dot-inner-mobile"></div></div>
+                        <div class="timeline-year-mobile">2024</div>
+                        <div class="timeline-text-mobile">未来的每一天，我都会在您身边</div>
+                    </div>
+                </div>
+                <div class="polaroid-scroll">
+                    <div class="polaroid-mobile-item" style="transform:rotate(-3deg)">
+                        <div class="polaroid">
+                            <img src="https://images.unsplash.com/photo-1762174241767-498fbe248a30?w=800&q=80" alt="成长时光">
+                            <p class="polaroid-label">成长时光</p>
+                        </div>
+                    </div>
+                    <div class="polaroid-mobile-item" style="transform:rotate(2deg)">
+                        <div class="polaroid">
+                            <img src="https://images.unsplash.com/photo-1758598738003-3c2ea5c8b166?w=800&q=80" alt="书香岁月">
+                            <p class="polaroid-label">书香岁月</p>
+                        </div>
+                    </div>
+                    <div class="polaroid-mobile-item" style="transform:rotate(-3deg)">
+                        <div class="polaroid">
+                            <img src="https://images.unsplash.com/photo-1765544182396-667421f1e24d?w=800&q=80" alt="旅途风景">
+                            <p class="polaroid-label">旅途风景</p>
+                        </div>
+                    </div>
+                    <div class="polaroid-mobile-item" style="transform:rotate(2deg)">
+                        <div class="polaroid">
+                            <img src="https://images.unsplash.com/photo-1738750394233-31eaddf06795?w=800&q=80" alt="温馨时刻">
+                            <p class="polaroid-label">温馨时刻</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="view-album-btn" data-target="album">查看全部照片 ›</button>
+            </div>
+        </section>
+
+        <!-- Album Section -->
+        <section id="album" class="album-section">
+            <div class="album-content resp-pad">
+                <div class="fi">
+                    <div class="album-header">
+                        <div>
+                            <p class="album-label">ALBUM</p>
+                            <h2 class="album-title">相册</h2>
+                        </div>
+                        <svg width="36" height="52" viewBox="0 0 60 87" fill="none" stroke="#E88884" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6">
+                            <path d="M30 87 Q29 68 30 48"/>
+                            <path d="M30 69 Q17 59 13 44 Q22 55 30 69" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                            <path d="M30 61 Q43 51 47 36 Q38 47 30 61" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="fi">
+                    <div class="album-tabs">
+                        <button class="album-tab active" data-tab="全部">全部</button>
+                        <button class="album-tab" data-tab="成长">成长</button>
+                        <button class="album-tab" data-tab="旅行">旅行</button>
+                        <button class="album-tab" data-tab="生活">生活</button>
+                    </div>
+                </div>
+                <div class="album-grid-wrapper">
+                    <div class="album-grid">
+                        <div class="album-cell fi" data-cat="成长" style="transition-delay:0s">
+                            <img src="https://images.unsplash.com/photo-1762174241767-498fbe248a30?w=800&q=80" alt="成长">
+                        </div>
+                        <div class="album-cell fi" data-cat="旅行" style="transition-delay:0.06s">
+                            <img src="https://images.unsplash.com/photo-1628827720737-d8ad84806c35?w=600&q=80" alt="旅行">
+                        </div>
+                        <div class="album-cell fi" data-cat="生活" style="transition-delay:0.12s">
+                            <img src="https://images.unsplash.com/photo-1758598738003-3c2ea5c8b166?w=800&q=80" alt="生活">
+                        </div>
+                        <div class="album-cell fi" data-cat="成长" style="transition-delay:0.18s">
+                            <img src="https://images.unsplash.com/photo-1760115144598-7cf1914eae25?w=600&q=80" alt="成长">
+                        </div>
+                        <div class="album-cell fi" data-cat="旅行" style="transition-delay:0.24s">
+                            <img src="https://images.unsplash.com/photo-1603317581682-c3c3e3a3a588?w=600&q=80" alt="旅行">
+                        </div>
+                        <div class="album-cell fi" data-cat="生活" style="transition-delay:0.3s">
+                            <img src="https://images.unsplash.com/photo-1752652015997-760c7db923d2?w=600&q=80" alt="生活">
+                        </div>
+                        <div class="album-cell fi" data-cat="旅行" style="transition-delay:0.36s">
+                            <img src="https://images.unsplash.com/photo-1765544182396-667421f1e24d?w=800&q=80" alt="旅行">
+                        </div>
+                        <div class="album-cell fi" data-cat="生活" style="transition-delay:0.42s">
+                            <img src="https://images.unsplash.com/photo-1738750394233-31eaddf06795?w=800&q=80" alt="生活">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Message Section -->
+        <section class="message-section-mobile md:hidden">
+            <div class="fi">
+                <h2 class="section-title-mobile">心里话</h2>
+            </div>
+            <div class="fi">
+                <div class="message-card-mobile">
+                    <div class="quote-mark-mobile">"</div>
+                    <div class="message-content-mobile">
+                        <p class="message-text-mobile handwriting">
+                            妈，<br/>
+                            谢谢您为我做的一切，<br/>
+                            谢谢您的包容和理解，<br/>
+                            谢谢您的爱和付出。<br/>
+                            这些年辛苦了！<br/>愿您永远健康、快乐，<br/>我会一直陪在您身边。
+                        </p>
+                        <p class="message-sign-mobile handwriting-sign">
+                            ——您的孩子<br/>
+                            <span>2024.05.11</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interaction Section -->
+        <section id="interaction" class="interaction-section">
+            <div class="interaction-content">
+                <div class="fi">
+                    <p class="interaction-label">INTERACTIVE</p>
+                    <h2 class="interaction-title">点击有惊喜</h2>
+                    <p class="interaction-hint">点我一下 · 有惊喜哦~</p>
+                </div>
+                <div class="fi" style="position:relative; display:inline-block">
+                    <div class="heart-wrapper" id="heartWrapper">
+                        <button class="hb-anim" id="heartBtn" style="background:none; border:none; cursor:pointer; display:block; position:relative; z-index:1">
+                            <svg width="134" height="126" viewBox="0 0 140 132" fill="none">
+                                <defs>
+                                    <radialGradient id="heartGrad" cx="38%" cy="32%" r="70%">
+                                        <stop offset="0%" stop-color="#F9C0C0"/>
+                                        <stop offset="55%" stop-color="#E88884"/>
+                                        <stop offset="100%" stop-color="#D46060"/>
+                                    </radialGradient>
+                                    <filter id="heartBlur" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur in="SourceGraphic" stdDeviation="3.5"/>
+                                    </filter>
+                                </defs>
+                                <path d="M70 120 C54 102 8 78 8 44 C8 24 22 10 40 10 C52 10 62 18 70 28 C78 18 88 10 100 10 C118 10 132 24 132 44 C132 78 86 102 70 120Z" fill="#FBDCD6" filter="url(#heartBlur)" opacity="0.75"/>
+                                <path d="M70 116 C56 100 12 76 12 44 C12 26 25 14 42 14 C53 14 63 22 70 30 C77 22 87 14 98 14 C115 14 128 26 128 44 C128 76 84 100 70 116Z" fill="url(#heartGrad)" opacity="0.9"/>
+                                <ellipse cx="50" cy="38" rx="14" ry="8" fill="white" opacity="0.22" transform="rotate(-35 50 38)"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="heart-message pop" id="heartMsg" style="display:none; margin-top:20px; background-color:#FBDCD6; color:#E88884; border-radius:16px; padding:10px 24px; font-size:15px; font-family:'Noto Serif SC',serif"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ending Section -->
+        <section id="ending" class="ending-section">
+            <div class="ending-content">
+                <div class="bg-carnation-left">
+                    <svg width="130" height="189" viewBox="0 0 60 87" fill="none" stroke="#E88884" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M30 87 Q29 68 30 48"/>
+                        <path d="M30 69 Q17 59 13 44 Q22 55 30 69" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        <path d="M30 61 Q43 51 47 36 Q38 47 30 61" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                    </svg>
+                </div>
+                <div class="bg-carnation-right">
+                    <svg width="130" height="189" viewBox="0 0 60 87" fill="none" stroke="#E88884" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" style="transform:scaleX(-1)">
+                        <path d="M30 87 Q29 68 30 48"/>
+                        <path d="M30 69 Q17 59 13 44 Q22 55 30 69" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                        <path d="M30 61 Q43 51 47 36 Q38 47 30 61" fill="#E88884" fill-opacity="0.1" stroke-width="0.7"/>
+                    </svg>
+                </div>
+                <div class="fi">
+                    <p class="ending-text-top">以后，换我照顾您了。</p>
+                </div>
+                <div class="fi flt" style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:24px">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="#E88884" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <span class="ending-logo">母亲节快乐</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="#E88884" stroke="#E88884" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <div class="fi">
+                    <div class="ending-date">05/11</div>
+                    <div class="ending-week">星期日</div>
+                </div>
+                <div class="fi flt" style="margin-bottom:32px; display:flex; justify-content:center">
+                    <svg width="120" height="157" viewBox="0 0 130 170" fill="none">
+                        <ellipse cx="48" cy="146" rx="30" ry="8" fill="#D4C4B0" opacity="0.55"/>
+                        <rect x="32" y="62" width="32" height="86" rx="4" fill="#FBDCD6" stroke="#E8C0B8" stroke-width="1"/>
+                        <path d="M32 82 Q40 79 46 82" stroke="white" stroke-width="1" opacity="0.55"/>
+                        <path d="M34 100 Q42 97 48 100" stroke="white" stroke-width="1" opacity="0.55"/>
+                        <path d="M32 118 Q38 116 44 118" stroke="white" stroke-width="1" opacity="0.55"/>
+                        <path d="M32 70 Q29 80 30 96" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+                        <path d="M48 62 Q48.5 58 48 55" stroke="#4A3A2A" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M48 55 Q43 45 46 34 Q48 26 50 34 Q53 45 48 55" fill="#FFB347" opacity="0.5"/>
+                        <path d="M48 54 Q44 46 46 37 Q48 31 50 37 Q52 46 48 54" fill="#FFD166" opacity="0.9"/>
+                        <path d="M48 52 Q46 46 47 40 Q48 36 49 40 Q50 46 48 52" fill="white" opacity="0.6"/>
+                        
+                        <path d="M90 146 Q92 122 96 100 Q100 82 106 60" stroke="#8A9A6A" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M98 105 Q110 98 114 86 Q103 95 98 105" fill="#8A9A6A" fill-opacity="0.45" stroke="#8A9A6A" stroke-width="0.7"/>
+                        <path d="M94 125 Q82 120 78 108 Q86 118 94 125" fill="#8A9A6A" fill-opacity="0.45" stroke="#8A9A6A" stroke-width="0.7"/>
+                        <path d="M106 58 Q98 46 92 48 Q88 54 94 60 Q100 64 106 60" fill="#E88884" fill-opacity="0.22" stroke="#E88884" stroke-width="0.8"/>
+                        <path d="M106 58 Q114 46 120 48 Q124 54 118 60 Q112 64 106 60" fill="#E88884" fill-opacity="0.22" stroke="#E88884" stroke-width="0.8"/>
+                        <path d="M106 58 Q100 42 98 34 Q106 44 106 58" fill="#E88884" fill-opacity="0.28" stroke="#E88884" stroke-width="0.8"/>
+                        <path d="M106 58 Q112 42 114 34 Q106 44 106 58" fill="#E88884" fill-opacity="0.28" stroke="#E88884" stroke-width="0.8"/>
+                        <path d="M102 52 Q106 42 110 52 Q108 58 106 58 Q104 58 102 52Z" fill="#E88884" fill-opacity="0.55"/>
+                        <circle cx="106" cy="52" r="4" fill="#E88884" fill-opacity="0.72"/>
+                        
+                        <path d="M18 120 Q16 108 14 100" stroke="#8A9A6A" stroke-width="1" stroke-linecap="round"/>
+                        <circle cx="14" cy="97" r="6" fill="#FBDCD6" stroke="#E88884" stroke-width="0.8"/>
+                        <circle cx="14" cy="97" r="3" fill="#E88884" fill-opacity="0.65"/>
+                        <path d="M16 110 Q10 105 8 97 Q13 104 16 110" fill="#8A9A6A" fill-opacity="0.4"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Greeting Card Section -->
+        <section class="greeting-section">
+            <div class="greeting-content">
+                <div class="fi">
+                    <h2 class="greeting-title">母亲节快乐！</h2>
+                    <p class="greeting-subtitle">我爱您 ❤</p>
+                </div>
+                <div class="fi envelope-wrapper">
+                    <svg width="220" height="158" viewBox="0 0 200 144" fill="none">
+                        <defs>
+                            <linearGradient id="envelopeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#FFF7EC"/>
+                                <stop offset="100%" stop-color="#F5EDE5"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="4" y="30" width="192" height="110" rx="8" fill="url(#envelopeGradient)" stroke="#E8C8C0" stroke-width="1.5"/>
+                        <path d="M4 140 L60 88" stroke="#E8C8C0" stroke-width="1"/>
+                        <path d="M196 140 L140 88" stroke="#E8C8C0" stroke-width="1"/>
+                        <path d="M4 30 L100 86 L196 30" fill="#FBDCD6" stroke="#E8C8C0" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top-wrapper">
+            <button class="back-to-top-btn" data-target="hero">↑ 回到顶部</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>Made with ❤ For Mom · 2024</p>
+        </footer>
+    </div>
+    <script src="src/main.js"></script>
+</body>
+</html>
